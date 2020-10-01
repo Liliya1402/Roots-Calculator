@@ -1,0 +1,80 @@
+<!Doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="author" content="Liliya Goldman">
+   <meta name="keywords" content="calculator,roots Calculator">
+       <meta name="viewport" content="width=device-width">
+    
+  <title>Quadratic Equation Roots Calculator</title>
+
+   <style type="text/css">
+	 .label{ size:5px; }
+     .lebel :input:invalid :focus{background-color: red; }
+    .input:invalid:focus{border: red;}
+     .form:invalid{ border-color: red; }
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+
+function validate(element) {
+
+	if (element.value==0)
+	{
+		element.style = "border-color:red";
+	    document.getElementById("result").innerHTML="Enter valid number";
+	}else 
+	{
+		element.style = "border-color:black";
+    }
+}
+
+function calculateRoots(form)
+{
+	var a, b, c;
+	var result;  
+	var result1;
+	var result2;
+                     
+	var a = form["a"].value;
+	var b = form["b"].value;
+	var c = form["c"].value;
+	document.getElementById("result").innerHTML = "";
+
+	//validation
+	if (a==0)
+	{
+		document.getElementById("result").innerHTML= "<em>a</em> cannot equal zero!";
+	}
+	else{
+		
+		result = (parseInt(b) + parseInt(c)) / parseInt(a);
+	 	document.getElementById("result").innerHTML= "x = " + result;
+	}
+
+
+}
+</script>
+
+	<h1>Quadratic Equation Roots Calculator</h1>
+	<h3> This web page finds the roots of a polynomial equation of the following form:<br>
+		<em>ax<sup>2</sup> + bx + c</em> = 0<br>
+		<em>a, b,</em> and<em> c </em> must be integers between -99 and +99, and <em>a </em>must be non-zero.<br><br></h3>
+		
+		
+ <form>
+<label for="a"> <b>a:</b></label>
+<input type="number" id="a" size="5"  min="-99" max="99" required onfocusout="validate(this);"> 
+<label for="b"><b>b:</b></label>
+<input type="number" id ="b"size="5" min="-99" max="99" required> 
+ <label for="c"> <b>c:</b>
+<input type="number" id="c" size="5" min="-99" max="99" required> </label> 
+		    <br><br>
+ <input type="button" value="Calculate Root" onclick="calculateRoots(this.form);">
+</form>
+<br><br>
+ <output id="result"></output>
+	 		
+</body>
+</html>
